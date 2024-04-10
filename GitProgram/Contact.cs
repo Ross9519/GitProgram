@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GitProgram
+﻿namespace GitProgram
 {
     internal class Contact
     {
@@ -15,6 +9,11 @@ namespace GitProgram
         {
             Name = name;
             Number = number;
+        }
+
+        public override string ToString()
+        {
+            return $"Name: {Name}, Number: {Number}";
         }
     }
 }
