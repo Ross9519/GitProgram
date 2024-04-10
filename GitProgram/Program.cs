@@ -8,22 +8,23 @@ List<Contact> contacts =
 ];
 
 string cmd;
+Console.WriteLine("Program started");
 do
 {
-    Console.WriteLine("Program started");
     do
     {
         Console.WriteLine("What do you want to do?");
         Console.WriteLine("Add a contact [A], Show all contacts [S], Find a contact [F], Remove a contact [R], Quit [Q]");
         cmd = Console.ReadLine().ToUpper();
-    } while (cmd != "A" || cmd != "S" || cmd != "F" || cmd != "R" || cmd != "Q");
+    } while (cmd != "A" && cmd != "S" && cmd != "F" && cmd != "R" && cmd != "Q");
     SelectMethod(cmd, contacts);
 } while (cmd != "Q");
 
 
 static void SelectMethod(string cmd, List<Contact> contacts)
 {
-    switch(cmd)
+    Console.WriteLine();
+    switch (cmd)
     {
         case "A":
             AddContact(contacts);
@@ -61,6 +62,8 @@ static void AddContact(List<Contact> contacts)
 
     Contact contact = new(name, number);
     contacts.Add(contact);
+    Console.WriteLine("Contact added");
+    Console.WriteLine();
 }
 
 static void ShowContacts(List<Contact> contacts)
@@ -71,6 +74,7 @@ static void ShowContacts(List<Contact> contacts)
     {
         Console.WriteLine(item);
     }
+    Console.WriteLine();
 }
 
 static void FindContact(List<Contact> contacts)
@@ -84,6 +88,7 @@ static void FindContact(List<Contact> contacts)
     } while (string.IsNullOrEmpty(name));
 
     Contact foundContact = contacts.Find(contact => contact.Name.ToLower().Equals(name.ToLower()));
+    Console.WriteLine();
 
     if (foundContact != null)
     {
@@ -94,6 +99,7 @@ static void FindContact(List<Contact> contacts)
     {
         Console.WriteLine("Contact Not Found");
     }
+    Console.WriteLine();
 }
 
 static void RemoveContact(List<Contact> contacts)
@@ -107,6 +113,8 @@ static void RemoveContact(List<Contact> contacts)
     } while (string.IsNullOrEmpty(name));
 
     Contact contact = contacts.Find(contact => contact.Name.ToLower().Equals(name.ToLower()));
+    Console.WriteLine();
+
     if (contact != null)
     {
         contacts.Remove(contact);
@@ -116,4 +124,6 @@ static void RemoveContact(List<Contact> contacts)
     {
         Console.WriteLine("Contact Not Found");
     }
+
+    Console.WriteLine();
 }
