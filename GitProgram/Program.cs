@@ -7,13 +7,41 @@ List<Contact> contacts =
     new("Pluto", "3047592385")
 ];
 
-//AddContact(contacts);
-//ShowContacts(contacts);
-//FindContact(contacts);
-RemoveContact(contacts);
-ShowContacts(contacts);
+string cmd;
+do
+{
+    Console.WriteLine("Program started");
+    do
+    {
+        Console.WriteLine("What do you want to do?");
+        Console.WriteLine("Add a contact [A], Show all contacts [S], Find a contact [F], Remove a contact [R], Quit [Q]");
+        cmd = Console.ReadLine().ToUpper();
+    } while (cmd != "A" || cmd != "S" || cmd != "F" || cmd != "R" || cmd != "Q");
+    SelectMethod(cmd, contacts);
+} while (cmd != "Q");
 
 
+static void SelectMethod(string cmd, List<Contact> contacts)
+{
+    switch(cmd)
+    {
+        case "A":
+            AddContact(contacts);
+            break;
+        case "S":
+            ShowContacts(contacts);
+            break;
+        case "F":
+            FindContact(contacts);
+            break;
+        case "R":
+            RemoveContact(contacts);
+            break;
+        case "Q":
+            Console.WriteLine("Bye");
+            break;
+    }
+}
 
 static void AddContact(List<Contact> contacts)
 {
