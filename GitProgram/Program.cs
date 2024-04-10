@@ -61,12 +61,16 @@ static void AddContact(List<Contact> contacts)
 
     Contact contact = new(name, number);
     contacts.Add(contact);
-
 }
 
 static void ShowContacts(List<Contact> contacts)
 {
-    
+    Console.WriteLine("Here all the contacts in contact list");
+
+    foreach (var item in contacts)
+    {
+        Console.WriteLine(item);
+    }
 }
 
 static void FindContact(List<Contact> contacts)
