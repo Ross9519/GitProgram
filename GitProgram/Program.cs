@@ -98,5 +98,22 @@ static void FindContact(List<Contact> contacts)
 
 static void RemoveContact(List<Contact> contacts)
 {
-    
+    Console.WriteLine("Let's remove a contact in contact list:");
+    string name;
+    do
+    {
+        Console.Write("Name: ");
+        name = Console.ReadLine();
+    } while (string.IsNullOrEmpty(name));
+
+    Contact contact = contacts.Find(contact => contact.Name.ToLower().Equals(name.ToLower()));
+    if (contact != null)
+    {
+        contacts.Remove(contact);
+        Console.WriteLine("Contact Removed");
+    }
+    else
+    {
+        Console.WriteLine("Contact Not Found");
+    }
 }
